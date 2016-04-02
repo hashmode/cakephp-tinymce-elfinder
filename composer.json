@@ -4,7 +4,7 @@
     "type": "cakephp-plugin",
     "keywords": ["cakephp", "tinymce", "elfinder", "upload", "file-manager"],
     "require": {
-        "cakephp/cakephp": "^3.2",
+        "cakephp/cakephp": "~3.0",
         "studio-42/elfinder": "^2.1"
     },
     "license": "MIT",
