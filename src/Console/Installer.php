@@ -12,7 +12,7 @@
  * @since     3.0.0
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace Tmprepo\Console;
+namespace CakephpTinymceElfinder\Console;
 
 use Composer\Script\Event;
 use Exception;
