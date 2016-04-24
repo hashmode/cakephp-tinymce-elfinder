@@ -33,14 +33,12 @@ class Installer
         $rootDir = dirname($vendorDir);
         
         $io = $event->getIO();
-        $io->write($thisVendorDir);
-        $io->write($vendorDir);
-        $io->write($rootDir);
-        
         if (self::copyElfidnerFiles($thisVendorDir, $vendorDir) && self::copyTinymceFiles($thisVendorDir, $vendorDir)) {
+        	$io->write('Elfinder and Tinymce files are copied');
             return true;
         }
         
+        throw new Exception('Could not copy some Elfinder and/or Tinymce files');
         return false;
     }
 
