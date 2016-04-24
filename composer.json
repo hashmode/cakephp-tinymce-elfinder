@@ -1,0 +1,23 @@
+{
+    "name": "hashmode/cakephp-tinymce-elfinder",
+    "description": "Elfinder file manager integration with tinymce 4.x for cakephp 3.x",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "tinymce", "elfinder", "upload", "image", "file", "manager"],
+    "require": {
+        "cakephp/cakephp": "~3.0",
+        "studio-42/elfinder": "^2.1",
+        "tinymce/tinymce": "^4.3"
+    },
+    "license": "MIT",
+	"authors": [
+        {
+            "name": "hashmode"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CakephpTinymceElfinder\\": "src"
+        }
+    }
+    
+}
