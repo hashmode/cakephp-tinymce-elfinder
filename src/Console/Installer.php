@@ -37,7 +37,7 @@ class Installer
         $io->write($vendorDir);
         $io->write($rootDir);
         
-        if (self::moveElfidnerFiles($thisVendorDir, $vendorDir)) {
+        if (self::copyElfidnerFiles($thisVendorDir, $vendorDir) && self::copyTinymceFiles($thisVendorDir, $vendorDir)) {
             return true;
         }
         
@@ -45,7 +45,7 @@ class Installer
     }
 
     
-    public static function moveElfidnerFiles($thisVendorDir, $vendorDir)
+    public static function copyElfidnerFiles($thisVendorDir, $vendorDir)
     {
         
         $elfinderDir = $vendorDir . DS . 'studio-42' . DS . 'elfinder';
@@ -70,7 +70,7 @@ class Installer
         }
         
         
-        // move files
+        // copy files
         if (self::copyall($elfinderDir . DS . 'css', $webrootElfinderDir . DS . 'css')
             && self::copyall($elfinderDir . DS . 'js', $webrootElfinderDir . DS . 'js')
             && self::copyall($elfinderDir . DS . 'img', $webrootElfinderDir . DS . 'img')
@@ -80,6 +80,30 @@ class Installer
         }        
         
         throw new Exception('Can not copy elfinder files');
+    }
+	
+    
+    public static function copyTinymceFiles($thisVendorDir, $vendorDir)
+    {
+        
+        $tinymceDir = $vendorDir . DS . 'tinymce' . DS . 'tinymce';
+        $webrootDir = $thisVendorDir . DS . 'webroot';
+        
+        // create the webroot directory if does not exist
+        if (!file_exists($webrootDir)) {
+            if (mkdir($webrootDir)) {
+                ;
+            } else {
+                throw new Exception('Can not create webroot directory');
+            }
+        }
+        
+        // copy files
+        if (self::copyall($tinymceDir, $webrootDir . DS . 'tinymce')) {
+            return true;
+        }        
+        
+        throw new Exception('Can not copy tinymce files');
     }
 	
     
