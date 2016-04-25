@@ -5,8 +5,7 @@
     "keywords": ["cakephp", "tinymce", "elfinder", "upload", "image", "file", "manager"],
     "require": {
         "cakephp/cakephp": "~3.0",
-        "studio-42/elfinder": "^2.1",
-        "tinymce/tinymce": "^4.3"
+        "studio-42/elfinder": "^2.1"
     },
     "license": "MIT",
 	"authors": [
