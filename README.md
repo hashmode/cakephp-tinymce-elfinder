@@ -1,10 +1,13 @@
 # Cakephp-Tinymce-Elfinder
-Elfinder file manager integration with tinymce 4.x for cakephp 3.x - allows to upload images/files as into local file system, as well as Amazon S3, remote FTP server etc. 
+Elfinder file manager integration with tinymce 4.x for **cakephp 3.x** - allows to upload/access images/files as into local file system, as well as Amazon S3, remote FTP server etc. 
+
+For cakephp 2.x - https://github.com/hashmode/Tinymce-Image-Upload-Cakephp
 
 ## REQUIREMENTS
 1. Cakephp 3.x
-2. Elfinder 2.x https://github.com/Studio-42/elFinder
+2. Elfinder 2.x (currently 2.1) https://github.com/Studio-42/elFinder
 3. Tinymce 4.x (might work with 3.x as well)
+
 
 ## Installation
 
