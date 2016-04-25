@@ -58,8 +58,7 @@ Configure::write('TinymceElfinder', array(
                 'disabled' => array()
             )
         ),
-    ),
-    'commands' => array()
+    )
 ));
 
 ```
@@ -70,9 +69,6 @@ https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
 **static_files:** `Jquery min` and `Jquery UI` are necessary for elfinder to work, so they are being used in the plugin view, however to avoid copying them into plugin's webroot or application's webroot(maybe you are already using them) - it is just omitted and it is required to provide paths to css and js files for jquery min js, jquery ui min js and jquery ui css. Jquery ui theme's css is optional. These files should  reside in your application's webroot directory (or any plugins webroot directory - in that case you should use plugin syntax http://book.cakephp.org/3.0/en/appendices/glossary.html#term-plugin-syntax)
 
 **options:** https://github.com/Studio-42/elFinder/wiki/Client-configuration-options-2.1
-
-**commands:** list of commands to allow (if empty - everything is allowed) - can be set/updated dynamically based on active user
-https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
 
 
 **4)** Load Plugin's helper - by adding the following into your `AppView.php` initialize
@@ -108,7 +104,7 @@ $(document).ready(function() {
 
 ## IMPORTANT !! - SECURITY
 
-The list of commands provided under 'commands' array takes care only for client-side permission (meaning those options will be disabled). So if you need to allow only specific commands - make sure to add the rest of the commands(that should NOT be allowed) under `disabled` under options' roots - this will take care of server-side permission validation
+By default all the commands are allowed - so if you need to allow only specific commands - make sure to add the rest of the commands(that should NOT be allowed) under `disabled` under options' roots.
 https://github.com/Studio-42/elFinder/wiki/Client-Server-API-2.1#command-list
 
 
