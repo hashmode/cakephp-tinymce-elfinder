@@ -15,12 +15,12 @@ Elfinder file manager integration with tinymce 4.x for cakephp 3.x - allows to u
 ```
 Elfinder requirement is added inside plugin's composer, so it will automatically install it, however Tinymce should be installed separately: as well as jquery ui, upon which the Elfinder is dependent on.
 
-**2)** Load Plugin from bootstrap.php
+**2)** Load Plugin from `bootstrap.php`
 ```
 Plugin::load('CakephpTinymceElfinder', ['routes' => true]);
 ```
 
-**3)** Add configuration options into Bootstrap.php (or you can create another file and include it in bootstrap)
+**3)** Add configuration options into `bootstrap.php` (or you can create another file and include it in bootstrap)
 ```
 Configure::write('TinymceElfinder', array(
     'title' => __('Elfinder File Manager'),
@@ -67,11 +67,11 @@ Configure::write('TinymceElfinder', array(
 **client_options:** This is the list of options that is being used initiating the elfinder in javascript.
 https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
 
-**static_files:** Jquery min and Jquery UI min are necessary for elfinder to work, so they are being used in the plugin view, however to avoid copying them into plugin's webroot or application's webroot(maybe you are already using them) - it is just omitted and it is required to provide paths to css and js files for jquery min js, jquery ui min js and jquery ui css. Jquery ui theme's css is optional. These files should  reside in your application's webroot directory (or any plugins webroot directory - in that case you should use plugin syntax http://book.cakephp.org/3.0/en/appendices/glossary.html#term-plugin-syntax)
+**static_files:** `Jquery min` and `Jquery UI` are necessary for elfinder to work, so they are being used in the plugin view, however to avoid copying them into plugin's webroot or application's webroot(maybe you are already using them) - it is just omitted and it is required to provide paths to css and js files for jquery min js, jquery ui min js and jquery ui css. Jquery ui theme's css is optional. These files should  reside in your application's webroot directory (or any plugins webroot directory - in that case you should use plugin syntax http://book.cakephp.org/3.0/en/appendices/glossary.html#term-plugin-syntax)
 
 **options:** https://github.com/Studio-42/elFinder/wiki/Client-configuration-options-2.1
 
-**commands:** list of commands to allow (if empty - everything is allowed) - can be set dynamically based on user
+**commands:** list of commands to allow (if empty - everything is allowed) - can be set/updated dynamically based on active user
 https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
 
 
