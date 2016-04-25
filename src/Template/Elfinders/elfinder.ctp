@@ -4,7 +4,6 @@
 <script type="text/javascript">
 	var connectorUrl ='<?php echo $connectorUrl; ?>';
 	var clientOptions = <?php echo json_encode($clientOptions); ?>;
-	var myCommands =<?php echo json_encode($commandList);?>;
 
 	var FileBrowserDialogue = {
 		init: function() {
@@ -20,10 +19,6 @@
 	}
 
 	clientOptions.url = connectorUrl;
-
-	if (myCommands.length > 0) {
-		clientOptions.commands = myCommands;
-	}
 
 	clientOptions.getFileCallback = function(file) {
 		FileBrowserDialogue.mySubmit(file); 

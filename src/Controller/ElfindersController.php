@@ -21,11 +21,6 @@ class ElfindersController extends AppController
             $clientOptions = $configOptions['client_options'];
         }
         
-        $commandList = array();
-        if (empty($configOptions['commands'])) {
-            $commandList = $configOptions['commands'];
-        }
-        
         $staticFiles = array();
         if (!empty($configOptions['static_files'])) {
             $staticFiles = $configOptions['static_files'];
@@ -35,7 +30,7 @@ class ElfindersController extends AppController
             throw new Exception('Jquery min js, Jquery UI js and Jquery UI css files paths are required');
         }
 
-        $this->set(compact('connectorUrl', 'clientOptions', 'commandList', 'staticFiles'));
+        $this->set(compact('connectorUrl', 'clientOptions', 'staticFiles'));
     }
     
     // run elFinder
