@@ -33,12 +33,12 @@ class Installer
         $rootDir = dirname($vendorDir);
         
         $io = $event->getIO();
-        if (self::copyElfidnerFiles($thisVendorDir, $vendorDir) && self::copyTinymceFiles($thisVendorDir, $vendorDir)) {
-        	$io->write('Elfinder and Tinymce files are copied');
+        if (self::copyElfidnerFiles($thisVendorDir, $vendorDir)) {
+        	$io->write('Elfinder files have been succesfully copied');
             return true;
         }
         
-        throw new Exception('Could not copy some Elfinder and/or Tinymce files');
+        throw new Exception('Could not copy Elfinder files');
         return false;
     }
 
@@ -47,26 +47,15 @@ class Installer
     {
         
         $elfinderDir = $vendorDir . DS . 'studio-42' . DS . 'elfinder';
-        $webrootDir = $thisVendorDir . DS . 'webroot';
-        $webrootElfinderDir = $webrootDir . DS . 'elfinder';
-        
-        // create the webroot directory if does not exist
-        if (!file_exists($webrootDir)) {
-            if (mkdir($webrootDir)) {
-                ;
-            } else {
-                throw new Exception('Can not create webroot directory');
-            }
-        }
+        $webrootElfinderDir = $thisVendorDir . DS . 'webroot' . DS . 'elfinder';
         
         if (!file_exists($webrootElfinderDir)) {
             if (mkdir($webrootElfinderDir)) {
                 ;
             } else {
-                throw new Exception('Can not create webroot elfinder directory');
+                throw new Exception('Can not create elfinder directory');
             }
         }
-        
         
         // copy files
         if (self::copyall($elfinderDir . DS . 'css', $webrootElfinderDir . DS . 'css')
@@ -78,30 +67,6 @@ class Installer
         }        
         
         throw new Exception('Can not copy elfinder files');
-    }
-	
-    
-    public static function copyTinymceFiles($thisVendorDir, $vendorDir)
-    {
-        
-        $tinymceDir = $vendorDir . DS . 'tinymce' . DS . 'tinymce';
-        $webrootDir = $thisVendorDir . DS . 'webroot';
-        
-        // create the webroot directory if does not exist
-        if (!file_exists($webrootDir)) {
-            if (mkdir($webrootDir)) {
-                ;
-            } else {
-                throw new Exception('Can not create webroot directory');
-            }
-        }
-        
-        // copy files
-        if (self::copyall($tinymceDir, $webrootDir . DS . 'tinymce')) {
-            return true;
-        }        
-        
-        throw new Exception('Can not copy tinymce files');
     }
 	
     
