@@ -13,9 +13,9 @@ Elfinder file manager integration with tinymce 4.x for cakephp 3.x - allows to u
 ```
 "hashmode/cakephp-tinymce-elfinder": "~1.0"
 ```
-Elfinder requirement is added inside plugin's composer, so it will automatically install it, however Tinymce should be installed manually: as well as jquery ui, upon which the Elfinder is dependent on.
+Elfinder requirement is added inside plugin's composer, so it will automatically install it, however Tinymce should be installed separately: as well as jquery ui, upon which the Elfinder is dependent on.
 
-**2)** Add this line into your bootstrap.php
+**2)** Load Plugin from bootstrap.php
 ```
 Plugin::load('CakephpTinymceElfinder', ['routes' => true]);
 ```
@@ -69,7 +69,7 @@ https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
 
 **static_files:** Jquery min and Jquery UI min are necessary for elfinder to work, so they are being used in the plugin view, however to avoid copying them into plugin's webroot or application's webroot(maybe you are already using them) - it is just omitted and it is required to provide paths to css and js files for jquery min js, jquery ui min js and jquery ui css. Jquery ui theme's css is optional. These files should  reside in your application's webroot directory (or any plugins webroot directory - in that case you should use plugin syntax http://book.cakephp.org/3.0/en/appendices/glossary.html#term-plugin-syntax)
 
-**options** https://github.com/Studio-42/elFinder/wiki/Client-configuration-options-2.1
+**options:** https://github.com/Studio-42/elFinder/wiki/Client-configuration-options-2.1
 
 **commands:** list of commands to allow (if empty - everything is allowed) - can be set dynamically based on user
 https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
@@ -87,7 +87,7 @@ $this->loadHelper('CakephpTinymceElfinder.TinymceElfinder');
 <?php echo $this->Html->script('tinymce/tinymce.min.js'); ?>
 ```
 
-**6)** Add this line into your view - it will define the `file_browser_callback` function for tinymce
+**6)** By this line it will define a js function for `file_browser_callback` for tinymce
 ```
 <?php $this->TinymceElfinder->defineElfinderBrowser()?>
 ```
