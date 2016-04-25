@@ -9,7 +9,7 @@
 		<?php echo $this->Html->script($staticFiles['js']['jquery_ui']);?>
 		
 		<?php 
-		  if ($staticFiles['css']['jquery_ui_theme']) {
+		  if (!empty($staticFiles['css']['jquery_ui_theme'])) {
 		      echo $this->Html->css($staticFiles['css']['jquery_ui_theme']);
 		  }
 		?>
