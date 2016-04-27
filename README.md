@@ -17,6 +17,13 @@ For cakephp 2.x - https://github.com/hashmode/Tinymce-Image-Upload-Cakephp
 "hashmode/cakephp-tinymce-elfinder": "~1.0"
 ```
 Elfinder requirement is added inside plugin's composer, so it will automatically install it, however Tinymce should be installed separately: as well as jquery ui, upon which the Elfinder is dependent on.
+Because the statics files that are accessed inside the plugin's view files - are required to be in webroot directory, that is why after installation/update composer script based on callback should copy the static files from elfinder's folder to the plugin's webroot, for this reason the following should be added inside application's main `composer.json` file 
+
+```
+    "scripts": {
+        "post-update-cmd": "CakephpTinymceElfinder\\Console\\Installer::postUpdate"
+    },
+```
 
 **2)** Load Plugin from `bootstrap.php`
 ```
