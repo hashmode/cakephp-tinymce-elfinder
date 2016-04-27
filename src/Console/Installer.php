@@ -26,7 +26,9 @@ class Installer
 
     public static function postUpdate(Event $event)
     {
-        define('DS', DIRECTORY_SEPARATOR);
+    	if (!defined('DS')) {
+    		define('DS', DIRECTORY_SEPARATOR);
+    	}
         
         $thisVendorDir = dirname(dirname(__DIR__));
         $vendorDir = dirname(dirname($thisVendorDir));
