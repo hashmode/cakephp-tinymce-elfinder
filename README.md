@@ -117,6 +117,8 @@ $(document).ready(function() {
 By default all the commands are allowed - so if you need to allow only specific commands - make sure to add the rest of the commands(that should NOT be allowed) under `disabled` under options' roots.
 https://github.com/Studio-42/elFinder/wiki/Client-Server-API-2.1#command-list
 
+There are 2 actions in `ElfindersController.php` controller of the plugin, that are used for the functionality of elfinder, corresponding access permissions should be handled manually from the application.
+
 
 ## License
 
