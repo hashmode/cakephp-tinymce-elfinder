@@ -5,10 +5,36 @@ use CakephpTinymceElfinder\Controller\AppController;
 use Cake\Core\Configure;
 use Cake\Routing\Router;
 use Cake\Core\Exception\Exception;
+use Cake\Event\Event;
 
 class ElfindersController extends AppController
 {
+    
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
 
+        $actions = [
+            'elfinder',
+            'connector'
+        ];
+        
+        if (in_array($this->request->params['action'], $actions)) {
+            if (!empty($this->Csrf)) {
+                $this->eventManager()->off($this->Csrf);
+            }
+            
+            if (!empty($this->Security)) {
+                $this->Security->config('unlockedActions', $actions);
+            }
+        }
+    }
+
+    /**
+     * elfinder method
+     * 
+     * @throws Exception
+     */
     public function elfinder()
     {
         $this->viewBuilder()->layout('elfinder');
@@ -33,7 +59,10 @@ class ElfindersController extends AppController
         $this->set(compact('connectorUrl', 'clientOptions', 'staticFiles'));
     }
     
-    // run elFinder
+    /**
+     * connector method
+     * 
+     */
     public function connector(){
         $this->autoRender = false;
     
